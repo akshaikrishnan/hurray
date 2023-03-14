@@ -1,0 +1,13 @@
+<div class="flex flex-column">
+  <span class="avatar">
+    <img [src]="'../../../assets/img/' + userData.avatar + '.png'" alt="" />
+  </span>
+  <h3>{{ userData.name }}</h3>
+  <div *ngIf="userData.players; else id">
+    <p>Room Name : {{ userData.roomName }}</p>
+    <p>Players: {{ userData.players }}</p>
+  </div>
+  <ng-template #id>
+    <p>Room Id:{{ userData.roomId }}</p>
+  </ng-template>
+</div>

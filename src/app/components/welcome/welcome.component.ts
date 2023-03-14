@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { fadeInUpOnEnterAnimation } from 'angular-animations';
 
 import { CommonService } from 'src/app/services/common.service';
@@ -10,7 +11,7 @@ import { CommonService } from 'src/app/services/common.service';
   animations: [fadeInUpOnEnterAnimation()],
 })
 export class WelcomeComponent {
-  constructor(private cs: CommonService) {}
+  constructor(private cs: CommonService, private router: Router) {}
   currentStep = 1;
   jump = 1;
   roomName = '';
@@ -33,5 +34,14 @@ export class WelcomeComponent {
       this.jump = steps;
     }
   }
-  finish() {}
+  finish() {
+    this.cs.userData.next({
+      name: this.name,
+      avatar: this.selectedAvatar,
+      roomName: this?.roomName,
+      roomId: this?.roomID,
+      players: this.players,
+    });
+    this.router.navigate(['/finish']);
+  }
 }

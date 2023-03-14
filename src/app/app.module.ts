@@ -8,6 +8,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { MaxvalueDirective } from './directives/maxvalue.directive';
 import { NumberInputDirective } from './directives/number-input.directive';
+import { FinalScreenComponent } from './components/final-screen/final-screen.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NumberInputDirective } from './directives/number-input.directive';
     WelcomeComponent,
     MaxvalueDirective,
     NumberInputDirective,
+    FinalScreenComponent,
   ],
   imports: [
     BrowserModule,
