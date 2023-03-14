@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+}
+@for $i from 1 through 8 {
+  .mb-#{$i} {
+    margin-bottom: 8px * $i;
+  }
+}
+.btn {
+  width: 155px;
+  background: linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(to right, #7b72cc, #dc0078, #3871d6) border-box;
+  border-radius: 50em;
+  border: 2px solid transparent;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.btn:disabled {
+  background: #3a3a3a;
+  border: 1.65625px solid #b0b0b0;
+  cursor: not-allowed;
+}
+input[type="text"],
+input[type="text"]:focus {
+  background: rgba(217, 217, 217, 0.2);
+  height: 45px;
+  width: 300px;
+  padding-left: 10px;
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+  background: linear-gradient(#141923, #141923) padding-box,
+    linear-gradient(to right, #7b72cc, #dc0078, #3871d6) border-box;
+  border: 2px solid transparent;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-column {
+  flex-direction: column;
+}
+
+h3 {
+  font-weight: 400;
+  line-height: 45px;
+  font-size: 2em;
+}

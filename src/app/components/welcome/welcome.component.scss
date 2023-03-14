@@ -1,0 +1,84 @@
+.wrapper {
+  height: 230px;
+}
+:host {
+  display: block;
+}
+.avatar-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 50px 60px;
+  input[type="radio"] {
+    display: none;
+  }
+  input[type="radio"]:not(:checked):not([ng-reflect-model]) + label {
+    filter: grayscale(0) !important;
+    border: 2px solid transparent;
+  }
+
+  input[type="radio"]:not(:checked) + label {
+    filter: grayscale(0.6);
+    border: 2px solid #7e7e7e;
+  }
+  input[type="radio"]:checked + label {
+    filter: grayscale(0);
+    scale: 1.2;
+  }
+
+  label {
+    transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 130px;
+    height: 130px;
+    background-color: #272727;
+    border-radius: 50%;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-top: 32px;
+    cursor: pointer;
+    background: linear-gradient(#141923, #141923) padding-box,
+      linear-gradient(to right, #7b72cc, #dc0078, #3871d6) border-box;
+    border: 2px solid transparent;
+
+    img {
+      height: 100px;
+    }
+  }
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  background-color: #272727;
+  border-radius: 50%;
+  overflow: hidden;
+  padding-left: 23px;
+  padding-top: 24px;
+  margin-right: 10px;
+  img {
+    height: 80px;
+  }
+}
+.btn.btn-lg {
+  width: 320px;
+  font-size: 22px;
+}
+svg {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+div.switch {
+  opacity: 0;
+}
+.ng-trigger {
+  opacity: 100% !important;
+  transition: all 400ms ease-in;
+}

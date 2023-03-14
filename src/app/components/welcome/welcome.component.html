@@ -1,0 +1,155 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width="36"
+  height="36"
+  (click)="previousStep()"
+>
+  <path fill="none" d="M0 0h24v24H0z" />
+  <path
+    d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"
+    fill="rgba(255,255,255,1)"
+  />
+</svg>
+<div
+  [ngSwitch]="currentStep"
+  [@fadeInUpOnEnter]
+  class="flex flex-column switch"
+>
+  <ng-container *ngSwitchCase="1">
+    <h3 class="mb-3">What is your Name?</h3>
+    <input
+      class="mb-6"
+      placeholder="-Type here-"
+      type="text"
+      [(ngModel)]="name"
+      #nameInput="ngModel"
+      [pattern]="namePattern"
+      required
+    />
+    <button
+      (click)="nextStep()"
+      [disabled]="nameInput.errors"
+      pattern="[a-zA-Z]+"
+      class="btn"
+    >
+      Next
+    </button>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="2">
+    <h3 [@fadeInUpOnEnter] class="mb-3">Hello {{ name }}!</h3>
+    <p [@fadeInUpOnEnter]>Choose your avatar</p>
+    <div [@fadeInUpOnEnter] class="avatar-container">
+      <ng-container *ngFor="let avatar of avatars">
+        <input
+          [@fadeInUpOnEnter]
+          required
+          [(ngModel)]="selectedAvatar"
+          [value]="'avatar-1' + avatar"
+          type="radio"
+          name="avatar"
+          [id]="'avatar' + avatar"
+        />
+        <label [@fadeInUpOnEnter] class="avatar" [for]="'avatar' + avatar">
+          <img
+            [src]="'../../../assets/img/avatar-1' + avatar + '.png'"
+            [alt]="'avatar' + avatar"
+          />
+        </label>
+      </ng-container>
+    </div>
+
+    <button
+      [@fadeInUpOnEnter]
+      [disabled]="!selectedAvatar"
+      (click)="nextStep()"
+      pattern="[a-zA-Z]+"
+      class="btn"
+    >
+      Next
+    </button>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="3">
+    <div [@fadeInUpOnEnter] class="flex mb-3">
+      <span class="avatar">
+        <img [src]="'../../../assets/img/' + selectedAvatar + '.png'" alt="" />
+      </span>
+      <h3>{{ name }}</h3>
+    </div>
+    <button [@fadeInUpOnEnter] class="btn btn-lg mb-5" (click)="nextStep()">
+      Join a Room
+    </button>
+    <button [@fadeInUpOnEnter] class="btn btn-lg" (click)="nextStep(2)">
+      Create a Room
+    </button>
+  </ng-container>
+  <ng-container *ngSwitchCase="4">
+    <div [@fadeInUpOnEnter] class="flex mb-3">
+      <span class="avatar">
+        <img [src]="'../../../assets/img/' + selectedAvatar + '.png'" alt="" />
+      </span>
+      <h3>{{ name }}</h3>
+    </div>
+    <h4 [@fadeInUpOnEnter] class="mb-2">Type the room code below</h4>
+    <input
+      [@fadeInUpOnEnter]
+      class="mb-6"
+      placeholder="-Room ID-"
+      type="text"
+      [(ngModel)]="roomID"
+      #roomIDInput="ngModel"
+      minlength="6"
+      maxlength="6"
+      appNumberInput
+      required
+    />
+    <button
+      [@fadeInUpOnEnter]
+      class="btn"
+      [disabled]="roomIDInput.invalid"
+      (click)="finish()"
+    >
+      Join
+    </button>
+  </ng-container>
+  <ng-container *ngSwitchCase="5">
+    <div [@fadeInUpOnEnter] class="flex mb-3">
+      <span class="avatar">
+        <img [src]="'../../../assets/img/' + selectedAvatar + '.png'" alt="" />
+      </span>
+      <h3>{{ name }}</h3>
+    </div>
+    <h4 [@fadeInUpOnEnter] class="mb-2">Room Name</h4>
+    <input
+      [@fadeInUpOnEnter]
+      class="mb-6"
+      placeholder="-Room Name-"
+      type="text"
+      [(ngModel)]="roomName"
+      #roomNameInput="ngModel"
+      minlength="3"
+    />
+    <h4 [@fadeInUpOnEnter] class="mb-2">Number of Players</h4>
+    <input
+      [@fadeInUpOnEnter]
+      class="mb-6"
+      placeholder="-Number of Players-"
+      type="text"
+      [(ngModel)]="players"
+      #playersInput="ngModel"
+      maxlength="1"
+      appMaxvalue
+      required
+    />
+    <button
+      [@fadeInUpOnEnter]
+      class="btn"
+      [disabled]="roomNameInput.invalid && playersInput.invalid"
+      (click)="finish()"
+    >
+      Create
+    </button>
+  </ng-container>
+</div>
