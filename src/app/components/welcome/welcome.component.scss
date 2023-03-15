@@ -15,15 +15,20 @@
   }
   input[type="radio"]:not(:checked):not([ng-reflect-model]) + label {
     filter: grayscale(0) !important;
+    -webkit-filter: grayscale(0) !important;
+
     border: 2px solid transparent;
   }
 
   input[type="radio"]:not(:checked) + label {
     filter: grayscale(0.6);
+    -webkit-filter: grayscale(0.6);
     border: 2px solid #7e7e7e;
   }
   input[type="radio"]:checked + label {
     filter: grayscale(0);
+    -webkit-filter: grayscale(0);
+
     scale: 1.2;
   }
 
