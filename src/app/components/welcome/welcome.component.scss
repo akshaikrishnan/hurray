@@ -85,6 +85,25 @@
       }
     }
   }
+  input[type="radio"]:not(:checked):not([ng-reflect-model]) + label {
+    img {
+      filter: grayscale(0) !important;
+      -webkit-filter: grayscale(0) !important;
+    }
+  }
+
+  input[type="radio"]:not(:checked) + label {
+    img {
+      filter: grayscale(70%);
+      -webkit-filter: grayscale(70%);
+    }
+  }
+  input[type="radio"]:checked + label {
+    img {
+      filter: grayscale(0);
+      -webkit-filter: grayscale(0);
+    }
+  }
 }
 .btn.btn-lg {
   width: 320px;
