@@ -78,7 +78,6 @@
     label {
       width: 85px;
       height: 85px;
-      margin-bottom: 5px;
       img {
         margin-left: -8px;
         margin-top: -8px;
@@ -111,6 +110,7 @@
     }
     border: 2px solid transparent;
     scale: 1.5;
+    margin: 8px;
   }
 }
 .btn.btn-lg {
