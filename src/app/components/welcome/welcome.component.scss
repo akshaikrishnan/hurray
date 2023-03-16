@@ -85,7 +85,7 @@
       }
     }
   }
-  input[type="radio"]:not(:checked):not([ng-reflect-model]) + label {
+  input[type="radio"]:not(:checked).ng-invalid + label {
     img {
       filter: grayscale(0) !important;
       -webkit-filter: grayscale(0) !important;
