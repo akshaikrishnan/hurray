@@ -94,7 +94,7 @@
     border: 2px solid transparent;
   }
 
-  input[type="radio"]:not(:checked) + label {
+  input[type="radio"]:not(:checked).ng-valid + label {
     img {
       filter: grayscale(70%);
       -webkit-filter: grayscale(70%);
