@@ -89,6 +89,7 @@
     img {
       filter: grayscale(0) !important;
       -webkit-filter: grayscale(0) !important;
+      opacity: 1;
     }
   }
 
@@ -96,12 +97,14 @@
     img {
       filter: grayscale(70%);
       -webkit-filter: grayscale(70%);
+      opacity: 0.5;
     }
   }
   input[type="radio"]:checked + label {
     img {
       filter: grayscale(0);
       -webkit-filter: grayscale(0);
+      opacity: 1;
     }
   }
 }
