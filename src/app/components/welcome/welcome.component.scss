@@ -100,7 +100,7 @@
       -webkit-filter: grayscale(70%);
       opacity: 0.3;
     }
-    border: 2px solid #7e7e7e;
+    border: 2px solid #7e7e7e !important;
   }
   input[type="radio"]:checked + label {
     img {
