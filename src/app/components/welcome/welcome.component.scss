@@ -91,14 +91,16 @@
       -webkit-filter: grayscale(0) !important;
       opacity: 1;
     }
+    border: 2px solid transparent;
   }
 
   input[type="radio"]:not(:checked) + label {
     img {
       filter: grayscale(70%);
       -webkit-filter: grayscale(70%);
-      opacity: 0.5;
+      opacity: 0.3;
     }
+    border: 2px solid #7e7e7e;
   }
   input[type="radio"]:checked + label {
     img {
@@ -106,6 +108,8 @@
       -webkit-filter: grayscale(0);
       opacity: 1;
     }
+    border: 2px solid transparent;
+    scale: 1.5;
   }
 }
 .btn.btn-lg {
